@@ -1,0 +1,13 @@
+{
+  "name": "mpls-ldp-graceful-restart-validator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "离线校验 MPLS LDP 优雅重启、标签保留与邻接恢复状态(不建立真实 LDP 会话)",
+  "main": "src/validator.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=24.16.0"
+  }
+}

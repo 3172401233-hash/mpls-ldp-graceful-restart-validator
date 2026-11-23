@@ -1,0 +1,35 @@
+{
+  "now": 130,
+  "sessions": [
+    { "id": "s1", "local": "R1", "peer": "R2", "grCapable": true, "recoveryTime": 60 },
+    { "id": "s2", "local": "R1", "peer": "R3", "grCapable": true, "recoveryTime": 60 }
+  ],
+  "adjacencies": [
+    { "id": "a1", "session": "s1", "interface": "eth0" },
+    { "id": "a2", "session": "s2", "interface": "eth1" }
+  ],
+  "fecs": [
+    { "id": "fec1", "prefix": "10.0.0.0/24" }
+  ],
+  "mappings": [
+    { "fec": "fec1", "session": "s1", "label": 100 },
+    { "fec": "fec1", "session": "s2", "label": 200 }
+  ],
+  "nextHops": [
+    { "fec": "fec1", "via": "R2" },
+    { "fec": "fec1", "via": "R3" }
+  ],
+  "lspPaths": [
+    { "fec": "fec1", "path": ["R1", "R2", "R4"], "state": "up" }
+  ],
+  "restartFlags": [
+    { "router": "R2", "restarting": true }
+  ],
+  "events": [
+    { "type": "session-down", "session": "s1", "time": 10 },
+    { "type": "path-change", "fec": "fec1", "path": ["R1", "R3", "R4"], "state": "up", "time": 12 },
+    { "type": "session-up", "session": "s1", "time": 40 },
+    { "type": "mapping", "fec": "fec1", "session": "s1", "label": 160, "time": 45 },
+    { "type": "path-change", "fec": "fec1", "path": ["R1", "R2", "R4"], "state": "up", "time": 50 }
+  ]
+}
